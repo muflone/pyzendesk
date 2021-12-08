@@ -18,6 +18,7 @@ PyZendesk is an attempt to build a common API to interact with any
 # System Requirements
 
 * Python 3.x
+* Python Requests 2.26.x (https://pypi.org/project/requests/)
 
 # Usage
 
