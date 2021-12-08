@@ -46,6 +46,7 @@ class Api(object):
                     method: str,
                     path: str,
                     headers: dict,
+                    params: Optional[dict],
                     data: Optional[bytes],
                     json: Optional[dict]) -> requests.Response:
         """
@@ -54,6 +55,7 @@ class Api(object):
         :param method: REST method to use (get, post, put, delete)
         :param path: API path which will be added to the base API path
         :param headers: dictionary with HTTP headers
+        :param params: additional query string to send along with the request
         :param data: additional raw data to send along with the request
         :param json: additional JSON data to send along with the request
         :return: raw requests response
@@ -67,6 +69,7 @@ class Api(object):
                                    username=self.username,
                                    password=self.password),
                                headers=headers,
+                               params=params,
                                data=data,
                                json=json)
         return req
@@ -86,6 +89,7 @@ class Api(object):
         req = self.request_raw(method=method,
                                path=path,
                                headers={'Content-Type': 'application/json'},
+                               params=None,
                                data=None,
                                json=json)
         return req.json()
