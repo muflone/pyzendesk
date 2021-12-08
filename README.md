@@ -2,6 +2,8 @@
 
 [![Travis CI Build Status](https://img.shields.io/travis/com/muflone/pyzendesk/master.svg)](https://www.travis-ci.com/github/muflone/pyzendesk)
 [![CircleCI Build Status](https://img.shields.io/circleci/project/github/muflone/pyzendesk/master.svg)](https://circleci.com/gh/muflone/pyzendesk)
+[![PyPI - Version](https://img.shields.io/pypi/v/PyZendesk.svg)](https://pypi.org/project/PyZendesk/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/PyZendesk.svg)](https://pypi.org/project/PyZendesk/)
 
 **Description:** API for Zendesk
 
