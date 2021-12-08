@@ -45,6 +45,12 @@ ticket_id = tickets['results'][0]['id']
 ticket = zendesk.get(ticket_id=ticket_id)
 print('ticket details:', ticket)
 
+# Set ticket custom fields
+ticket = zendesk.update_custom_fields(ticket_id=ticket_id,
+                                      fields={1900004825713: 'something',
+                                              1900005530233: 'fr'})
+print('ticket details:', ticket)
+
 # Add private comment to a ticket
 ticket = zendesk.add_private_comment(ticket_id=ticket_id,
                                      text='This is **private** comment',
