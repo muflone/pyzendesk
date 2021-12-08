@@ -63,6 +63,32 @@ class Tickets(Api):
         return self.request_get(
             path=f'search?query=type:ticket {criteria}')
 
+    def add_comment(self,
+                    ticket_id: int,
+                    public: bool,
+                    text: str,
+                    attachments: Optional[list[str]]) -> dict:
+        """
+        Add a public comment to a ticket
+
+        :param ticket_id: ticket ID to update
+        :param public: boolean value to make the comment public
+        :param text: text to add to the ticket
+        :param attachments: list of tokens for attached files
+        :return: updated ticket details
+        """
+        ticket_data = {
+            'ticket': {
+                'comment': {
+                    'public': public,
+                    'body': text,
+                    'uploads': attachments
+                }
+            }
+        }
+        return self.request_put(path=f'tickets/{ticket_id}.json',
+                                json=ticket_data)
+
     def add_private_comment(self,
                             ticket_id: int,
                             text: str,
@@ -75,16 +101,10 @@ class Tickets(Api):
         :param attachments: list of tokens for attached files
         :return: updated ticket details
         """
-        return self.request_put(path=f'tickets/{ticket_id}.json',
-                                json={
-                                    'ticket': {
-                                        'comment': {
-                                            'public': False,
-                                            'body': text,
-                                            'uploads': attachments
-                                        }
-                                    }
-                                })
+        return self.add_comment(ticket_id=ticket_id,
+                                public=False,
+                                text=text,
+                                attachments=attachments)
 
     def add_public_comment(self,
                            ticket_id: int,
@@ -98,16 +118,10 @@ class Tickets(Api):
         :param attachments: list of tokens for attached files
         :return: updated ticket details
         """
-        return self.request_put(path=f'tickets/{ticket_id}.json',
-                                json={
-                                    'ticket': {
-                                        'comment': {
-                                            'public': True,
-                                            'body': text,
-                                            'uploads': attachments
-                                        }
-                                    }
-                                })
+        return self.add_comment(ticket_id=ticket_id,
+                                public=True,
+                                text=text,
+                                attachments=attachments)
 
     def set_status(self, ticket_id: int, status: str) -> dict:
         """
