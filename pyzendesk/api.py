@@ -46,14 +46,14 @@ class Api(object):
                     method: str,
                     path: str,
                     headers: dict,
-                    data: Optional[dict]) -> requests.Response:
+                    json: Optional[dict]) -> requests.Response:
         """
         Send a raw REST request to Zendesk
 
         :param method: REST method to use (get, post, put, delete)
         :param path: API path which will be added to the base API path
         :param headers: dictionary with HTTP headers
-        :param data: additional JSON data to send along with the request
+        :param json: additional JSON data to send along with the request
         :return: raw requests response
         """
         logging_path = path.replace('\n', '\\n')
@@ -65,25 +65,25 @@ class Api(object):
                                    username=self.username,
                                    password=self.password),
                                headers=headers,
-                               json=data)
+                               json=json)
         return req
 
     def request(self,
                 method: str,
                 path: str,
-                data: Optional[dict]) -> dict:
+                json: Optional[dict]) -> dict:
         """
         Send a JSON REST request to Zendesk
 
         :param method: REST method to use (get, post, put, delete)
         :param path: API path which will be added to the base API path
-        :param data: additional JSON data to send along with the request
+        :param json: additional JSON data to send along with the request
         :return: response from JSON data
         """
         req = self.request_raw(method=method,
                                path=path,
                                headers={'Content-Type': 'application/json'},
-                               data=data)
+                               json=json)
         return req.json()
 
     def request_get(self,
@@ -94,11 +94,11 @@ class Api(object):
         :param path: API path which will be added to the base API path
         :return: response from JSON data
         """
-        return self.request(method='get', path=path, data=None)
+        return self.request(method='get', path=path, json=None)
 
     def request_put(self,
                     path: str,
-                    data: dict) -> dict:
+                    json: dict) -> dict:
         """
         Send a PUT REST request to Zendesk
 
@@ -106,4 +106,4 @@ class Api(object):
         :param data: additional JSON data to send along with the request
         :return: response from JSON data
         """
-        return self.request(method='put', path=path, data=data)
+        return self.request(method='put', path=path, json=json)

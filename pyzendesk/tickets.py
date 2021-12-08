@@ -65,7 +65,7 @@ class Tickets(Api):
         :return: updated ticket details
         """
         return self.request_put(path=f'tickets/{ticket_id}.json',
-                                data={
+                                json={
                                     'ticket': {
                                         'comment': {
                                             'public': False,
@@ -83,7 +83,7 @@ class Tickets(Api):
         :return: updated ticket details
         """
         return self.request_put(path=f'tickets/{ticket_id}.json',
-                                data={
+                                json={
                                     'ticket': {
                                         'comment': {
                                             'public': True,
@@ -103,7 +103,7 @@ class Tickets(Api):
         data = [{'id': key, 'value': value}
                 for key, value in fields.items()]
         return self.request_put(path=f'tickets/{ticket_id}.json',
-                                data={
+                                json={
                                     'ticket': {
                                         'custom_fields': data
                                     }
