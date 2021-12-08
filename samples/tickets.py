@@ -42,14 +42,14 @@ print('tickets details:', len(tickets['results']))
 # Get details for the first ticket using its ID
 ticket_id = tickets['results'][0]['id']
 ticket = zendesk.get(ticket_id=ticket_id)
-print('tickets details:', ticket)
+print('ticket details:', ticket)
 
 # Add private comment to a ticket
 ticket = zendesk.add_private_comment(ticket_id=ticket_id,
                                      text='This is **private** comment')
-print('tickets details:', ticket)
+print('ticket details:', ticket)
 
 # Add public comment to a ticket
 ticket = zendesk.add_public_comment(ticket_id=ticket_id,
                                     text='This is **public** comment')
-print('tickets details:', ticket)
+print('ticket details:', ticket)

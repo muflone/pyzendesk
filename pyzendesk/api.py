@@ -111,7 +111,7 @@ class Api(object):
         Send a PUT REST request to Zendesk
 
         :param path: API path which will be added to the base API path
-        :param data: additional JSON data to send along with the request
+        :param json: additional JSON data to send along with the request
         :return: response from JSON data
         """
         return self.request(method='put', path=path, json=json)
