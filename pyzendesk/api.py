@@ -19,6 +19,7 @@
 ##
 
 import logging
+from typing import Optional
 
 import requests
 import requests.auth
@@ -41,14 +42,19 @@ class Api(object):
         self.username = username
         self.password = password
 
-    def request(self, method: str, path: str, data: dict) -> dict:
+    def request_raw(self,
+                    method: str,
+                    path: str,
+                    headers: dict,
+                    data: Optional[dict]) -> requests.Response:
         """
-        Send a REST request to Zendesk
+        Send a raw REST request to Zendesk
 
         :param method: REST method to use (get, post, put, delete)
         :param path: API path which will be added to the base API path
+        :param headers: dictionary with HTTP headers
         :param data: additional JSON data to send along with the request
-        :return: response from JSON data
+        :return: raw requests response
         """
         logging_path = path.replace('\n', '\\n')
         logging.debug(f'Executing {method} request '
@@ -58,11 +64,30 @@ class Api(object):
                                auth=requests.auth.HTTPBasicAuth(
                                    username=self.username,
                                    password=self.password),
-                               headers={'Content-Type': 'application/json'},
+                               headers=headers,
                                json=data)
+        return req
+
+    def request(self,
+                method: str,
+                path: str,
+                data: Optional[dict]) -> dict:
+        """
+        Send a JSON REST request to Zendesk
+
+        :param method: REST method to use (get, post, put, delete)
+        :param path: API path which will be added to the base API path
+        :param data: additional JSON data to send along with the request
+        :return: response from JSON data
+        """
+        req = self.request_raw(method=method,
+                               path=path,
+                               headers={'Content-Type': 'application/json'},
+                               data=data)
         return req.json()
 
-    def request_get(self, path: str) -> dict:
+    def request_get(self,
+                    path: str) -> dict:
         """
         Send a GET REST request to Zendesk
 
@@ -71,7 +96,9 @@ class Api(object):
         """
         return self.request(method='get', path=path, data=None)
 
-    def request_put(self, path: str, data: dict) -> dict:
+    def request_put(self,
+                    path: str,
+                    data: dict) -> dict:
         """
         Send a PUT REST request to Zendesk
 
