@@ -18,8 +18,22 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .api import Api                                               # noqa: F401
-from .constants import APP_VERSION as __version__                  # noqa: F401
-from .tickets import Tickets                                       # noqa: F401
-from .attachments import Attachments                               # noqa: F401
-from .users import Users                                           # noqa: F401
+from .api import Api
+
+
+class Attachments(Api):
+    def upload(self, content_type: str, filename: str, data: bytes) -> dict:
+        """
+        Upload an attachment using the specified content type
+
+        :param content_type: HTTP content_type
+        :param filename: filename for the uploaded file
+        :param data: raw data to upload
+        :return: upload JSON results
+        """
+        return self.request_raw(method='post',
+                                path='uploads.json',
+                                headers={'Content-Type': content_type},
+                                params={'filename': filename},
+                                data=data,
+                                json=None).json()
