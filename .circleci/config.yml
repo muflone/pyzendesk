@@ -26,8 +26,8 @@ jobs:
           name: check code
           command: |
             . venv/bin/activate
-            python -m compileall pyzendesk
-            pycodestyle pyzendesk
-            python -m flake8 pyzendesk
+            python -m compileall pyzendesk samples
+            pycodestyle pyzendesk samples
+            python -m flake8 pyzendesk samples
             python setup.py install --optimize=1 --root=build
             ls -laR build

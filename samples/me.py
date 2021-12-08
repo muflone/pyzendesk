@@ -18,5 +18,17 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .api import Api                                               # noqa: F401
-from .users import Users                                           # noqa: F401
+import json
+import os
+
+from pyzendesk import Users as ZendeskUsers
+
+
+# Instance zendesk object
+zendesk = ZendeskUsers(website=os.environ['ZENDESK_SERVER'])
+# Authenticate user
+zendesk.authenticate(username=os.environ['ZENDESK_USERNAME'],
+                     password=os.environ['ZENDESK_PASSWORD'])
+# Check my own status
+print(json.dumps(obj=zendesk.me(),
+                 indent=4))

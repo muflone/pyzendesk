@@ -18,5 +18,14 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .api import Api                                               # noqa: F401
-from .users import Users                                           # noqa: F401
+from .api import Api
+
+
+class Users(Api):
+    def me(self) -> dict:
+        """
+        Zendesk requester user information
+
+        :return: user information
+        """
+        return self.request_get(path='users/me.json')
