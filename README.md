@@ -1,5 +1,8 @@
 # PyZendesk
 
+[![Travis CI Build Status](https://img.shields.io/travis/com/muflone/pyzendesk/master.svg)](https://www.travis-ci.com/github/muflone/pyzendesk)
+[![CircleCI Build Status](https://img.shields.io/circleci/project/github/muflone/pyzendesk/master.svg)](https://circleci.com/gh/muflone/pyzendesk)
+
 **Description:** API for Zendesk
 
 **Copyright:** 2021 Fabio Castelli (Muflone) <muflone@muflone.com>
