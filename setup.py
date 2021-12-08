@@ -19,6 +19,7 @@
 ##
 
 import os.path
+import pkg_resources
 import setuptools
 
 import pyzendesk.constants
@@ -28,6 +29,14 @@ with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
                        'README.md'),
           encoding='utf-8') as f:
     long_description = f.read()
+
+# Get dependencies from requirements.txt
+with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
+                       'requirements.txt'),
+          encoding='utf-8') as f:
+    install_requires = [str(requirement)
+                        for requirement
+                        in pkg_resources.parse_requirements(f)]
 
 setuptools.setup(
     name=pyzendesk.constants.APP_NAME,
@@ -39,6 +48,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     url=pyzendesk.constants.APP_URL,
     packages=setuptools.find_packages(),
+    install_requires=install_requires,
     classifiers=[
         'Development Status :: 1 - Planning ',
         'Intended Audience :: Developers',
