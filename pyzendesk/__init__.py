@@ -19,4 +19,5 @@
 ##
 
 from .api import Api                                               # noqa: F401
+from .constants import APP_VERSION as __version__                  # noqa: F401
 from .users import Users                                           # noqa: F401
