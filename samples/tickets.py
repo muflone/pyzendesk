@@ -84,7 +84,8 @@ attachment = attachments.upload(content_type='text/plain',
 attachment_token = attachment['upload']['token']
 ticket = zendesk.add_private_comment(ticket_id=ticket_id,
                                      text='With attachment',
-                                     attachments=[attachment_token])
+                                     attachments=[attachment_token],
+                                     status=TICKET_STATUS_OPEN)
 print('tickets details:', ticket)
 
 # Add public comment to a ticket with attachments
@@ -94,7 +95,8 @@ attachment = attachments.upload(content_type='text/plain',
 attachment_token = attachment['upload']['token']
 ticket = zendesk.add_public_comment(ticket_id=ticket_id,
                                     text='With attachment',
-                                    attachments=[attachment_token])
+                                    attachments=[attachment_token],
+                                    status=TICKET_STATUS_PENDING)
 print('ticket details:', ticket)
 
 # Change ticket status

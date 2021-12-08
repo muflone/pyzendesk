@@ -67,7 +67,8 @@ class Tickets(Api):
                     ticket_id: int,
                     public: bool,
                     text: str,
-                    attachments: Optional[list[str]]) -> dict:
+                    attachments: Optional[list[str]],
+                    status: str = None) -> dict:
         """
         Add a public comment to a ticket
 
@@ -75,6 +76,7 @@ class Tickets(Api):
         :param public: boolean value to make the comment public
         :param text: text to add to the ticket
         :param attachments: list of tokens for attached files
+        :param status: new status after the saving the comment
         :return: updated ticket details
         """
         ticket_data = {
@@ -86,42 +88,50 @@ class Tickets(Api):
                 }
             }
         }
+        if status is not None:
+            ticket_data['ticket']['status'] = status
         return self.request_put(path=f'tickets/{ticket_id}.json',
                                 json=ticket_data)
 
     def add_private_comment(self,
                             ticket_id: int,
                             text: str,
-                            attachments: Optional[list[str]]) -> dict:
+                            attachments: Optional[list[str]],
+                            status: str = None) -> dict:
         """
         Add a private comment to a ticket
 
         :param ticket_id: ticket ID to update
         :param text: text to add to the ticket
         :param attachments: list of tokens for attached files
+        :param status: new status after the saving the comment
         :return: updated ticket details
         """
         return self.add_comment(ticket_id=ticket_id,
                                 public=False,
                                 text=text,
-                                attachments=attachments)
+                                attachments=attachments,
+                                status=status)
 
     def add_public_comment(self,
                            ticket_id: int,
                            text: str,
-                           attachments: Optional[list[str]]) -> dict:
+                           attachments: Optional[list[str]],
+                           status: str = None) -> dict:
         """
         Add a public comment to a ticket
 
         :param ticket_id: ticket ID to update
         :param text: text to add to the ticket
         :param attachments: list of tokens for attached files
+        :param status: new status after the saving the comment
         :return: updated ticket details
         """
         return self.add_comment(ticket_id=ticket_id,
                                 public=True,
                                 text=text,
-                                attachments=attachments)
+                                attachments=attachments,
+                                status=status)
 
     def set_status(self, ticket_id: int, status: str) -> dict:
         """
