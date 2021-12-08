@@ -22,6 +22,12 @@ import os
 
 from pyzendesk import Attachments as ZendeskAttachments
 from pyzendesk import Tickets as ZendeskTickets
+from pyzendesk import (TICKET_STATUS_NEW,
+                       TICKET_STATUS_OPEN,
+                       TICKET_STATUS_PENDING,
+                       TICKET_STATUS_HOLD,
+                       TICKET_STATUS_SOLVED,
+                       TICKET_STATUS_CLOSED)
 
 
 # Instance zendesk object
@@ -90,3 +96,14 @@ ticket = zendesk.add_public_comment(ticket_id=ticket_id,
                                     text='With attachment',
                                     attachments=[attachment_token])
 print('ticket details:', ticket)
+
+# Change ticket status
+for status in (TICKET_STATUS_NEW,
+               TICKET_STATUS_OPEN,
+               TICKET_STATUS_PENDING,
+               TICKET_STATUS_HOLD,
+               TICKET_STATUS_SOLVED,
+               TICKET_STATUS_CLOSED):
+    ticket = zendesk.set_status(ticket_id=ticket_id,
+                                status=status)
+    print('ticket details:', ticket)

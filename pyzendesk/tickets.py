@@ -22,6 +22,13 @@ from typing import Optional
 
 from .api import Api
 
+TICKET_STATUS_NEW = 'new'
+TICKET_STATUS_OPEN = 'open'
+TICKET_STATUS_PENDING = 'pending'
+TICKET_STATUS_HOLD = 'hold'
+TICKET_STATUS_SOLVED = 'solved'
+TICKET_STATUS_CLOSED = 'closed'
+
 
 class Tickets(Api):
     def get(self, ticket_id: int) -> dict:
@@ -99,6 +106,21 @@ class Tickets(Api):
                                             'body': text,
                                             'uploads': attachments
                                         }
+                                    }
+                                })
+
+    def set_status(self, ticket_id: int, status: str) -> dict:
+        """
+        Update ticket status
+
+        :param ticket_id: ticket ID to update
+        :param status: new ticket status
+        :return: updated ticket details
+        """
+        return self.request_put(path=f'tickets/{ticket_id}.json',
+                                json={
+                                    'ticket': {
+                                        'status': status
                                     }
                                 })
 

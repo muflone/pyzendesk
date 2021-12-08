@@ -20,6 +20,12 @@
 
 from .api import Api                                               # noqa: F401
 from .constants import APP_VERSION as __version__                  # noqa: F401
-from .tickets import Tickets                                       # noqa: F401
+from .tickets import (TICKET_STATUS_NEW,                           # noqa: F401
+                      TICKET_STATUS_OPEN,                          # noqa: F401
+                      TICKET_STATUS_PENDING,                       # noqa: F401
+                      TICKET_STATUS_HOLD,                          # noqa: F401
+                      TICKET_STATUS_SOLVED,                        # noqa: F401
+                      TICKET_STATUS_CLOSED,                        # noqa: F401
+                      Tickets)                                     # noqa: F401
 from .attachments import Attachments                               # noqa: F401
 from .users import Users                                           # noqa: F401
