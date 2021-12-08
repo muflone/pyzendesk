@@ -56,12 +56,16 @@ class Tickets(Api):
         return self.request_get(
             path=f'search?query=type:ticket {criteria}')
 
-    def add_private_comment(self, ticket_id: int, text: str) -> dict:
+    def add_private_comment(self,
+                            ticket_id: int,
+                            text: str,
+                            attachments: Optional[list[str]]) -> dict:
         """
         Add a private comment to a ticket
 
         :param ticket_id: ticket ID to update
         :param text: text to add to the ticket
+        :param attachments: list of tokens for attached files
         :return: updated ticket details
         """
         return self.request_put(path=f'tickets/{ticket_id}.json',
@@ -69,17 +73,22 @@ class Tickets(Api):
                                     'ticket': {
                                         'comment': {
                                             'public': False,
-                                            'body': text
+                                            'body': text,
+                                            'uploads': attachments
                                         }
                                     }
                                 })
 
-    def add_public_comment(self, ticket_id: int, text: str) -> dict:
+    def add_public_comment(self,
+                           ticket_id: int,
+                           text: str,
+                           attachments: Optional[list[str]]) -> dict:
         """
         Add a public comment to a ticket
 
         :param ticket_id: ticket ID to update
         :param text: text to add to the ticket
+        :param attachments: list of tokens for attached files
         :return: updated ticket details
         """
         return self.request_put(path=f'tickets/{ticket_id}.json',
@@ -87,7 +96,8 @@ class Tickets(Api):
                                     'ticket': {
                                         'comment': {
                                             'public': True,
-                                            'body': text
+                                            'body': text,
+                                            'uploads': attachments
                                         }
                                     }
                                 })

@@ -20,6 +20,7 @@
 
 import os
 
+from pyzendesk import Attachments as ZendeskAttachments
 from pyzendesk import Tickets as ZendeskTickets
 
 
@@ -46,10 +47,40 @@ print('ticket details:', ticket)
 
 # Add private comment to a ticket
 ticket = zendesk.add_private_comment(ticket_id=ticket_id,
-                                     text='This is **private** comment')
+                                     text='This is **private** comment',
+                                     attachments=None)
 print('ticket details:', ticket)
 
 # Add public comment to a ticket
 ticket = zendesk.add_public_comment(ticket_id=ticket_id,
-                                    text='This is **public** comment')
+                                    text='This is **public** comment',
+                                    attachments=None)
+print('ticket details:', ticket)
+
+
+# Instance attachments object
+attachments = ZendeskAttachments(website=os.environ['ZENDESK_SERVER'])
+attachments.authenticate(username=os.environ['ZENDESK_USERNAME'],
+                         password=os.environ['ZENDESK_PASSWORD'])
+with open(__file__, 'rb') as file:
+    attachment_content = file.read()
+
+# Add private comment to a ticket with attachments
+attachment = attachments.upload(content_type='text/plain',
+                                filename='test.py',
+                                data=attachment_content)
+attachment_token = attachment['upload']['token']
+ticket = zendesk.add_private_comment(ticket_id=ticket_id,
+                                     text='With attachment',
+                                     attachments=[attachment_token])
+print('tickets details:', ticket)
+
+# Add public comment to a ticket with attachments
+attachment = attachments.upload(content_type='text/plain',
+                                filename='test.py',
+                                data=attachment_content)
+attachment_token = attachment['upload']['token']
+ticket = zendesk.add_public_comment(ticket_id=ticket_id,
+                                    text='With attachment',
+                                    attachments=[attachment_token])
 print('ticket details:', ticket)
