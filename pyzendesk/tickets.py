@@ -63,6 +63,42 @@ class Tickets(Api):
         return self.request_get(
             path=f'search?query=type:ticket {criteria}')
 
+    def search_all(self, criteria_list: list) -> dict:
+        """
+        Get the tickets matching the specified criterias processing all the
+        results by requesting also the next pages.
+
+        :param criteria_list: list of string criterias
+        :return: dictionary with tickets details found
+        """
+        results = {}
+        current_page = 0
+        next_page_url = 'initial value'
+        # Copy the criteria list which will be changed during the loop
+        criteria_list = criteria_list.copy()
+        while next_page_url:
+            current_page += 1
+            criteria_list.append(f'&page={current_page}')
+            search_results = self.search(criteria_list=criteria_list)
+            if not results:
+                # First page of results
+                results = search_results
+            elif 'error' in search_results:
+                # Too many results, search interrupted server side
+                results['error'] = search_results['error']
+                results['description'] = search_results['description']
+            else:
+                # Append results
+                results['results'].extend(search_results['results'])
+            if 'error' not in search_results:
+                # Continue processing the next page
+                next_page_url = search_results['next_page']
+            else:
+                # Stop search if any error occurred
+                next_page_url = None
+            criteria_list.remove(f'&page={current_page}')
+        return results
+
     def add_comment(self,
                     ticket_id: int,
                     public: bool,

@@ -46,6 +46,11 @@ tickets = zendesk.search(criteria_list=['created>=2021-01-01',
                                         'created<=2021-01-31'])
 print('tickets details:', len(tickets['results']))
 
+# Get all the tickets details from 2021-01-01 to 2021-01-31
+tickets = zendesk.search_all(criteria_list=['created>=2021-01-01',
+                                            'created<=2021-01-31'])
+print('tickets details:', len(tickets['results']))
+
 # Get details for the first ticket using its ID
 ticket_id = tickets['results'][0]['id']
 ticket = zendesk.get(ticket_id=ticket_id)
