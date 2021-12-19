@@ -180,3 +180,29 @@ class Tickets(Api):
                                         'custom_fields': data
                                     }
                                 })
+
+    def get_requester_email(self, ticket: dict) -> Optional[str]:
+        """
+        Get the sender address from a ticket dictionary.
+        In the case the ticket object doesn't contain a valid address try to
+        process a new Zendesk search using a previous ticket followup
+
+        :param ticket: dictionary with ticket body
+        :return: requester email address
+        """
+        try:
+            from_data = ticket['via']['source']['from']
+            if 'address' in from_data:
+                # Requester email address
+                result = from_data['address'].lower()
+            elif 'ticket_id' in from_data:
+                # Missing requester address, check in the referenced ticket
+                search_results = self.get(ticket_id=from_data['ticket_id'])
+                from_data = search_results['ticket']['via']['source']['from']
+                result = from_data['address'].lower()
+            else:
+                # Missing fields for email address
+                raise KeyError
+        except KeyError:
+            result = None
+        return result
