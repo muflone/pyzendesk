@@ -54,7 +54,7 @@ class Tickets(Api):
 
     def search(self, criteria_list: list) -> dict:
         """
-        Get the number of tickets matching the specified criterias
+        Get the tickets matching the specified criterias
 
         :param criteria_list: list of string criterias
         :return: dictionary with tickets details found
