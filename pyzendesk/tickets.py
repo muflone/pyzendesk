@@ -18,7 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from typing import Optional
+from typing import Any, Optional
 
 from .api import Api
 
@@ -147,6 +147,22 @@ class Tickets(Api):
                                         'status': status
                                     }
                                 })
+
+    def get_custom_field(self,
+                         ticket: dict,
+                         field_id: int,
+                         default: Any) -> Optional[Any]:
+        """
+        Get a custom field value from a Zendesk ticket body
+
+        :param ticket: dictionary with ticket body
+        :param field_id: field ID
+        :param default: default value for value not found
+        :return: custom field value or default value
+        """
+        return ([field['value']
+                 for field in ticket['custom_fields']
+                 if field['id'] == field_id] or [default])[0]
 
     def update_custom_fields(self, ticket_id: int, fields: dict) -> dict:
         """
