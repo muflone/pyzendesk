@@ -50,6 +50,11 @@ user = zendesk.get(user_id=users['users'][0]['id'])
 print(json.dumps(obj=user,
                  indent=4))
 
+# Get user related details
+user = zendesk.get_related(user_id=users['users'][0]['id'])
+print(json.dumps(obj=user,
+                 indent=4))
+
 # Autocomplete users
 users = zendesk.autocomplete(name='Fabio C')
 print('users details:', len(users['users']))

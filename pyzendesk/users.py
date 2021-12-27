@@ -92,6 +92,15 @@ class Users(Api):
         ids = ','.join(map(str, user_ids))
         return self.request_get(path=f'users/show_many?ids={ids}')
 
+    def get_related(self, user_id: int) -> dict:
+        """
+        Get a user's related details
+
+        :param user_id: user ID to get data from
+        :return: dictionary with the user related details
+        """
+        return self.request_get(path=f'users/{user_id}/related')
+
     def count(self, criteria_list: list) -> Optional[int]:
         """
         Get the number of users matching the specified criterias
