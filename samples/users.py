@@ -40,7 +40,7 @@ users = zendesk.search(criteria_list=['created>=2021-01-01',
                                       'created<=2021-01-31'])
 print('users details:', len(users['users']))
 
-# Get all the tickets details from 2021-01-01 to 2021-01-31
+# Get all the users details from 2021-01-01 to 2021-01-31
 users = zendesk.search_all(criteria_list=['created>=2021-01-01',
                                           'created<=2021-01-31'])
 print('users details:', len(users['users']))

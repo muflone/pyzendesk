@@ -36,7 +36,7 @@ class Users(Api):
         """
         Get a user's details
 
-        :param user_id: yser ID to get data from
+        :param user_id: user ID to get data from
         :return: dictionary with the user details
         """
         return self.request_get(path=f'users/{user_id}.json')
