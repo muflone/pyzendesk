@@ -80,7 +80,7 @@ class Users(Api):
         :param user_id: user ID to get data from
         :return: dictionary with the user details
         """
-        return self.request_get(path=f'users/{user_id}.json')
+        return self.request_get(path=f'users/{user_id}')
 
     def get_many(self, user_ids: list[int]) -> dict:
         """
