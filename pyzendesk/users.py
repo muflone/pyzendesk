@@ -209,6 +209,16 @@ class Users(Api):
         return self.request_post(path='users/create_many',
                                  json={'users': users})
 
+    def create_or_update(self, user: dict) -> dict:
+        """
+        Create a new user or update an existing user
+
+        :param user: user details dictionary
+        :return: updated user details
+        """
+        return self.request_post(path='users/create_or_update',
+                                 json={'user': user})
+
     def delete(self, user_id: int) -> dict:
         """
         Delete a user

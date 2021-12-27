@@ -86,6 +86,13 @@ user2 = zendesk.create(user={'email': f'{constants.APP_AUTHOR_EMAIL}.copy',
 user = zendesk.merge(user_id=user2['user']['id'],
                      user_id_final=user['user']['id'])
 
+# Create or update user
+user = zendesk.create_or_update(user={'email': constants.APP_AUTHOR_EMAIL,
+                                      'name': constants.APP_AUTHOR,
+                                      'role': 'end-user',
+                                      'verified': True,
+                                      'phone': '+39987654321'})
+
 # Delete the new user
 user = zendesk.delete(user_id=user['user']['id'])
 print(json.dumps(obj=user,
