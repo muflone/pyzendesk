@@ -101,6 +101,15 @@ class Users(Api):
         """
         return self.request_get(path=f'users/{user_id}/related')
 
+    def get_deleted(self, user_id: int) -> dict:
+        """
+        Get a deleted user's details
+
+        :param user_id: user ID to get data from
+        :return: dictionary with the user related details
+        """
+        return self.request_get(path=f'deleted_users/{user_id}')
+
     def list_deleted(self) -> dict:
         """
         Get the deleted users list
