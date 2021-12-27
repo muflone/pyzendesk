@@ -52,3 +52,14 @@ class Users(Api):
         results = self.request_get(
             path=f'users/search?query={criteria}')
         return results.get('count')
+
+    def search(self, criteria_list: list) -> dict:
+        """
+        Get the users matching the specified criterias
+
+        :param criteria_list: list of string criterias
+        :return: dictionary with users details found
+        """
+        criteria = ' '.join(criteria_list)
+        return self.request_get(
+            path=f'users/search?query={criteria}')

@@ -30,12 +30,17 @@ zendesk = ZendeskUsers(website=os.environ['ZENDESK_SERVER'])
 zendesk.authenticate(username=os.environ['ZENDESK_USERNAME'],
                      password=os.environ['ZENDESK_PASSWORD'])
 
-# Get user details
-user = zendesk.get(user_id=384880206477)
-print(json.dumps(obj=user,
-                 indent=4))
-
 # Get the users count from 2021-01-01 to 2021-01-31
 count = zendesk.count(criteria_list=['created>=2021-01-01',
                                      'created<=2021-01-31'])
 print('users count found:', count)
+
+# Get the users details from 2021-01-01 to 2021-01-31
+users = zendesk.search(criteria_list=['created>=2021-01-01',
+                                      'created<=2021-01-31'])
+print('users details:', len(users['users']))
+
+# Get user details
+user = zendesk.get(user_id=users['users'][0]['id'])
+print(json.dumps(obj=user,
+                 indent=4))
