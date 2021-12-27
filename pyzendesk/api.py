@@ -104,6 +104,18 @@ class Api(object):
         """
         return self.request(method='get', path=path, json=None)
 
+    def request_post(self,
+                     path: str,
+                     json: dict) -> dict:
+        """
+        Send a POST REST request to Zendesk
+
+        :param path: API path which will be added to the base API path
+        :param json: additional JSON data to send along with the request
+        :return: response from JSON data
+        """
+        return self.request(method='post', path=path, json=json)
+
     def request_put(self,
                     path: str,
                     json: dict) -> dict:
