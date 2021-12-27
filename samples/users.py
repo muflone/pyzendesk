@@ -82,3 +82,8 @@ print(json.dumps(obj=user,
 user = zendesk.delete(user_id=user['user']['id'])
 print(json.dumps(obj=user,
                  indent=4))
+
+# Purge the new user
+user = zendesk.purge(user_id=user['user']['id'])
+print(json.dumps(obj=user,
+                 indent=4))

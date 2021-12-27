@@ -178,3 +178,12 @@ class Users(Api):
         :return: deleted user details
         """
         return self.request_delete(path=f'users/{user_id}')
+
+    def purge(self, user_id: int) -> dict:
+        """
+        Permanently delete a deleted user
+
+        :param user_id: user ID to delete permanently
+        :return: deleted user details
+        """
+        return self.request_delete(path=f'deleted_users/{user_id}')
