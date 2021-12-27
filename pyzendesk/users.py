@@ -32,6 +32,47 @@ class Users(Api):
         """
         return self.request_get(path='users/me.json')
 
+    def autocomplete(self, name: str) -> dict:
+        """
+        Get the users with matching name
+
+        :param name: user name to match
+        :return: dictionary with the user details
+        """
+        return self.request_get(path=f'users/autocomplete?name={name}')
+
+    def autocomplete_all(self, name: str) -> dict:
+        """
+        Get all the users with matching name
+
+        :param name: user name to match
+        :return: dictionary with the user details
+        """
+        results = {}
+        current_page = 0
+        next_page_url = 'initial value'
+        while next_page_url:
+            current_page += 1
+            search_results = self.autocomplete(name=f'{name}'
+                                                    f'&page={current_page}')
+            if not results:
+                # First page of results
+                results = search_results
+            elif 'error' in search_results:
+                # Too many results, search interrupted server side
+                results['error'] = search_results['error']
+                results['description'] = search_results['description']
+            else:
+                # Append results
+                results['users'].extend(search_results['users'])
+            if 'error' not in search_results:
+                # Continue processing the next page
+                next_page_url = search_results['next_page']
+            else:
+                # Stop search if any error occurred
+                next_page_url = None
+        return results
+
     def get(self, user_id: int) -> dict:
         """
         Get a user's details

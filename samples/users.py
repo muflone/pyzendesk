@@ -49,3 +49,11 @@ print('users details:', len(users['users']))
 user = zendesk.get(user_id=users['users'][0]['id'])
 print(json.dumps(obj=user,
                  indent=4))
+
+# Autocomplete users
+users = zendesk.autocomplete(name='Fabio C')
+print('users details:', len(users['users']))
+
+# Autocomplete all users
+users = zendesk.autocomplete_all(name='Fabio C')
+print('users details:', len(users['users']))
