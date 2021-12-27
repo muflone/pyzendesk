@@ -159,3 +159,13 @@ class Users(Api):
                 next_page_url = None
             criteria_list.remove(f'&page={current_page}')
         return results
+
+    def create(self, user: dict) -> dict:
+        """
+        Create a new user
+
+        :param user: user details dictionary
+        :return: updated user details
+        """
+        return self.request_post(path='users',
+                                 json={'user': user})

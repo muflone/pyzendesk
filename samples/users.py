@@ -21,6 +21,7 @@
 import json
 import os
 
+from pyzendesk import constants
 from pyzendesk import Users as ZendeskUsers
 
 
@@ -68,3 +69,11 @@ users = zendesk.get_many(user_ids=[users['users'][0]['id'],
                                    users['users'][1]['id'],
                                    users['users'][2]['id']])
 print('users details:', len(users['users']))
+
+# Create new user
+user = zendesk.create(user={'email': constants.APP_AUTHOR_EMAIL,
+                            'name': constants.APP_AUTHOR,
+                            'role': 'end-user',
+                            'verified': True})
+print(json.dumps(obj=user,
+                 indent=4))
