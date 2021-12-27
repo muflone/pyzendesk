@@ -94,6 +94,16 @@ class Api(object):
                                json=json)
         return req.json()
 
+    def request_delete(self,
+                       path: str) -> dict:
+        """
+        Send a DELETE REST request to Zendesk
+
+        :param path: API path which will be added to the base API path
+        :return: response from JSON data
+        """
+        return self.request(method='delete', path=path, json=None)
+
     def request_get(self,
                     path: str) -> dict:
         """
