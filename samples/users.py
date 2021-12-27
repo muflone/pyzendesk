@@ -34,3 +34,8 @@ zendesk.authenticate(username=os.environ['ZENDESK_USERNAME'],
 user = zendesk.get(user_id=384880206477)
 print(json.dumps(obj=user,
                  indent=4))
+
+# Get the users count from 2021-01-01 to 2021-01-31
+count = zendesk.count(criteria_list=['created>=2021-01-01',
+                                     'created<=2021-01-31'])
+print('users count found:', count)

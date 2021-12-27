@@ -18,6 +18,8 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+from typing import Optional
+
 from .api import Api
 
 
@@ -39,3 +41,14 @@ class Users(Api):
         """
         return self.request_get(path=f'users/{user_id}.json')
 
+    def count(self, criteria_list: list) -> Optional[int]:
+        """
+        Get the number of users matching the specified criterias
+
+        :param criteria_list: list of string criterias
+        :return: number of users found
+        """
+        criteria = ' '.join(criteria_list)
+        results = self.request_get(
+            path=f'users/search?query={criteria}')
+        return results.get('count')
