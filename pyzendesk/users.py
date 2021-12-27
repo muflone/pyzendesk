@@ -101,6 +101,14 @@ class Users(Api):
         """
         return self.request_get(path=f'users/{user_id}/related')
 
+    def list_deleted(self) -> dict:
+        """
+        Get the deleted users list
+
+        :return: dictionary with the deleted users details
+        """
+        return self.request_get(path='deleted_users')
+
     def count(self, criteria_list: list) -> Optional[int]:
         """
         Get the number of users matching the specified criterias

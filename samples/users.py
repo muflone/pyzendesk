@@ -83,6 +83,10 @@ user = zendesk.delete(user_id=user['user']['id'])
 print(json.dumps(obj=user,
                  indent=4))
 
+# List deleted users
+users = zendesk.list_deleted()
+print('users details:', len(users['deleted_users']))
+
 # Purge the new user
 user = zendesk.purge(user_id=user['user']['id'])
 print(json.dumps(obj=user,
