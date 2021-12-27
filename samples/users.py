@@ -77,3 +77,8 @@ user = zendesk.create(user={'email': constants.APP_AUTHOR_EMAIL,
                             'verified': True})
 print(json.dumps(obj=user,
                  indent=4))
+
+# Delete the new user
+user = zendesk.delete(user_id=user['user']['id'])
+print(json.dumps(obj=user,
+                 indent=4))

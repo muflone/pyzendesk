@@ -169,3 +169,12 @@ class Users(Api):
         """
         return self.request_post(path='users',
                                  json={'user': user})
+
+    def delete(self, user_id: int) -> dict:
+        """
+        Delete a user
+
+        :param user_id: user ID to delete
+        :return: deleted user details
+        """
+        return self.request_delete(path=f'users/{user_id}')
