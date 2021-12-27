@@ -18,24 +18,19 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from .api import Api
+import json
+import os
+
+from pyzendesk import Users as ZendeskUsers
 
 
-class Users(Api):
-    def me(self) -> dict:
-        """
-        Zendesk requester user information
+# Instance zendesk object
+zendesk = ZendeskUsers(website=os.environ['ZENDESK_SERVER'])
+# Authenticate user
+zendesk.authenticate(username=os.environ['ZENDESK_USERNAME'],
+                     password=os.environ['ZENDESK_PASSWORD'])
 
-        :return: user information
-        """
-        return self.request_get(path='users/me.json')
-
-    def get(self, user_id: int) -> dict:
-        """
-        Get a user's details
-
-        :param user_id: yser ID to get data from
-        :return: dictionary with the user details
-        """
-        return self.request_get(path=f'users/{user_id}.json')
-
+# Get user details
+user = zendesk.get(user_id=384880206477)
+print(json.dumps(obj=user,
+                 indent=4))
