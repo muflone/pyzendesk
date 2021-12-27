@@ -101,6 +101,18 @@ class Users(Api):
         """
         return self.request_get(path=f'users/{user_id}/related')
 
+    def merge(self, user_id: int, user_id_final: int) -> dict:
+        """
+        Merge a user into another
+
+        :param user_id: user ID to get data from
+        :param user_id_final: final user ID to merge data to
+        :return: dictionary with the user related details
+        """
+        return self.request_put(path=f'users/{user_id}/merge',
+                                json={'user': {
+                                    'id': user_id_final}})
+
     def get_deleted(self, user_id: int) -> dict:
         """
         Get a deleted user's details
