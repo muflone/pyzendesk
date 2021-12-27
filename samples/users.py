@@ -57,3 +57,9 @@ print('users details:', len(users['users']))
 # Autocomplete all users
 users = zendesk.autocomplete_all(name='Fabio C')
 print('users details:', len(users['users']))
+
+# Get many users
+users = zendesk.get_many(user_ids=[users['users'][0]['id'],
+                                   users['users'][1]['id'],
+                                   users['users'][2]['id']])
+print('users details:', len(users['users']))

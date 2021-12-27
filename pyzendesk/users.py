@@ -82,6 +82,16 @@ class Users(Api):
         """
         return self.request_get(path=f'users/{user_id}.json')
 
+    def get_many(self, user_ids: list[int]) -> dict:
+        """
+        Get many users' details
+
+        :param user_ids: list of users ID to get data from
+        :return: dictionary with the user details
+        """
+        ids = ','.join(map(str, user_ids))
+        return self.request_get(path=f'users/show_many?ids={ids}')
+
     def count(self, criteria_list: list) -> Optional[int]:
         """
         Get the number of users matching the specified criterias
