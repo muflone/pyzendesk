@@ -104,3 +104,18 @@ print(json.dumps(obj=user,
 user = zendesk.purge(user_id=user['deleted_user']['id'])
 print(json.dumps(obj=user,
                  indent=4))
+
+# Create two new users
+status = zendesk.create_many(users=[
+    {'email': constants.APP_AUTHOR_EMAIL,
+     'name': constants.APP_AUTHOR,
+     'role': 'end-user',
+     'verified': True},
+    {'email': f'{constants.APP_AUTHOR_EMAIL}.copy',
+     'name': constants.APP_AUTHOR,
+     'role': 'end-user',
+     'verified': True},
+    ])
+print(json.dumps(obj=status,
+                 indent=4))
+
