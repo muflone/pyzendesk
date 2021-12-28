@@ -246,3 +246,14 @@ class Users(Api):
         :return: deleted user details
         """
         return self.request_delete(path=f'deleted_users/{user_id}')
+
+    def update(self, user_id: int, user: dict) -> dict:
+        """
+        Updated an existing user
+
+        :param user_id: user ID to update
+        :param user: user details dictionary
+        :return: updated user details
+        """
+        return self.request_put(path=f'users/{user_id}',
+                                json={'user': user})

@@ -93,6 +93,10 @@ user = zendesk.create_or_update(user={'email': constants.APP_AUTHOR_EMAIL,
                                       'verified': True,
                                       'phone': '+39987654321'})
 
+# Update user
+user = zendesk.update(user_id=user['user']['id'],
+                      user={'phone': '+39123456789'})
+
 # Delete the new user
 user = zendesk.delete(user_id=user['user']['id'])
 print(json.dumps(obj=user,
@@ -127,15 +131,15 @@ print(json.dumps(obj=user,
 #                  indent=4))
 
 # Create two new users
-status = zendesk.create_or_update_many(users=[
-    {'email': constants.APP_AUTHOR_EMAIL,
-     'name': constants.APP_AUTHOR,
-     'role': 'end-user',
-     'verified': True},
-    {'email': f'{constants.APP_AUTHOR_EMAIL}.copy',
-     'name': constants.APP_AUTHOR,
-     'role': 'end-user',
-     'verified': True},
-    ])
-print(json.dumps(obj=status,
-                 indent=4))
+# status = zendesk.create_or_update_many(users=[
+#     {'email': constants.APP_AUTHOR_EMAIL,
+#      'name': constants.APP_AUTHOR,
+#      'role': 'end-user',
+#      'verified': True},
+#     {'email': f'{constants.APP_AUTHOR_EMAIL}.copy',
+#      'name': constants.APP_AUTHOR,
+#      'role': 'end-user',
+#      'verified': True},
+#     ])
+# print(json.dumps(obj=status,
+#                  indent=4))
