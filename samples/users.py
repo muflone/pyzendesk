@@ -113,7 +113,21 @@ print(json.dumps(obj=user,
                  indent=4))
 
 # Create two new users
-status = zendesk.create_many(users=[
+# status = zendesk.create_many(users=[
+#     {'email': constants.APP_AUTHOR_EMAIL,
+#      'name': constants.APP_AUTHOR,
+#      'role': 'end-user',
+#      'verified': True},
+#     {'email': f'{constants.APP_AUTHOR_EMAIL}.copy',
+#      'name': constants.APP_AUTHOR,
+#      'role': 'end-user',
+#      'verified': True},
+#     ])
+# print(json.dumps(obj=status,
+#                  indent=4))
+
+# Create two new users
+status = zendesk.create_or_update_many(users=[
     {'email': constants.APP_AUTHOR_EMAIL,
      'name': constants.APP_AUTHOR,
      'role': 'end-user',
@@ -125,4 +139,3 @@ status = zendesk.create_many(users=[
     ])
 print(json.dumps(obj=status,
                  indent=4))
-
