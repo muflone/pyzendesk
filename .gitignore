@@ -1,3 +1,6 @@
+# Ignore .idea folder for Jetbrains IDEs
+.idea/
+
 # Ignore Python compiled files
 *.pyc
 __pycache__/
@@ -5,4 +8,4 @@ __pycache__/
 # Ignore build and dist folders for PyPI
 /build/
 /dist/
-*.egg-info/
+PyZendesk.egg-info/
