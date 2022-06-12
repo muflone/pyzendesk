@@ -18,6 +18,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+from .admins import Admins                                         # noqa: F401
 from .agents import Agents                                         # noqa: F401
 from .api import Api                                               # noqa: F401
 from .constants import APP_VERSION as __version__                  # noqa: F401
