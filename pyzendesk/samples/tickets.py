@@ -56,6 +56,7 @@ ticket_id = tickets['results'][0]['id']
 ticket = zendesk.get(ticket_id=ticket_id)
 print('ticket details:', ticket)
 
+ticket_id = 358004
 # Set ticket custom fields
 ticket = zendesk.update_custom_fields(ticket_id=ticket_id,
                                       fields={1900004825713: 'something',
