@@ -5,7 +5,11 @@ install:
   - pip install -r requirements_travis.txt
 script:
   - python -m compileall .
-  - pycodestyle .
+  - python -m pycodestyle .
   - python -m flake8 .
-  - python setup.py install --optimize=1 --root=build
-  - ls -laR build
+  - python -m build --outdir=dist .
+  - ls -laR .
+  - python -m pip install --verbose dist/*.whl
+  - python -m pip list
+  - python -m pip freeze
+  - python -m pip uninstall --yes --verbose pyzendesk
