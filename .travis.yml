@@ -8,8 +8,8 @@ script:
   - python -m pycodestyle .
   - python -m flake8 .
   - python -m build --outdir=dist .
-  - ls -laR .
   - python -m pip install --verbose dist/*.whl
   - python -m pip list
   - python -m pip freeze
+  - ls -laR .
   - python -m pip uninstall --yes --verbose pyzendesk
