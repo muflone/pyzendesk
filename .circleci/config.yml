@@ -27,7 +27,11 @@ jobs:
           command: |
             . venv/bin/activate
             python -m compileall pyzendesk samples
-            pycodestyle pyzendesk samples
+            python -m pycodestyle pyzendesk samples
             python -m flake8 pyzendesk samples
-            python setup.py install --optimize=1 --root=build
-            ls -laR build
+            python -m build --outdir=dist .
+            ls -laR .
+            python -m pip install --verbose dist/*.whl
+            python -m pip list
+            python -m pip freeze
+            python -m pip uninstall --yes --verbose pyzendesk
