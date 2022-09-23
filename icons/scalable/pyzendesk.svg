@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="100"
+   height="100"
+   viewBox="0 0 100 100"
+   xml:space="preserve"
+   sodipodi:docname="pyzendesk.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"><defs
+   id="defs143"><linearGradient
+     inkscape:collect="always"
+     id="linearGradient1051"><stop
+       style="stop-color:#000000;stop-opacity:1;"
+       offset="0"
+       id="stop1047" /><stop
+       style="stop-color:#a4af19;stop-opacity:1;"
+       offset="0.46147183"
+       id="stop2507" /><stop
+       style="stop-color:#000000;stop-opacity:1;"
+       offset="1"
+       id="stop1049" /></linearGradient><radialGradient
+     inkscape:collect="always"
+     xlink:href="#linearGradient1051"
+     id="radialGradient3961"
+     cx="50.5"
+     cy="9.7108259"
+     fx="50.5"
+     fy="9.7108259"
+     r="50.5"
+     gradientTransform="matrix(1,0,0,0.19229359,0,7.8434966)"
+     gradientUnits="userSpaceOnUse" /></defs><sodipodi:namedview
+   id="namedview141"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1.0"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   showgrid="false"
+   inkscape:zoom="3.1881188"
+   inkscape:cx="-18.506211"
+   inkscape:cy="21.956522"
+   inkscape:window-width="1920"
+   inkscape:window-height="1011"
+   inkscape:window-x="0"
+   inkscape:window-y="32"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<style
+   type="text/css"
+   id="style120">
+	.st0{fill:#FFFFFF;}
+</style>
+
+<g
+   id="Layer_2_1_"
+   style="fill:#1d47a5;fill-opacity:1"
+   transform="matrix(0.76712707,0,0,0.76712707,21.032195,39.857024)">
+	<g
+   id="Layer_1-2"
+   style="fill:#1d47a5;fill-opacity:1">
+		<path
+   class="st0"
+   d="m 67.6,16.7 c 1.3,0 2.6,-0.5 3.6,-1.4 l 1.8,1.9 c -1.4,1.4 -3.3,2.2 -5.3,2.1 -4.3,0 -7.2,-2.9 -7.2,-6.8 -0.1,-3.7 2.8,-6.7 6.5,-6.8 0.1,0 0.2,0 0.3,0 4.3,0 6.8,3.3 6.6,7.9 H 63.6 c 0.3,2 2.1,3.3 4,3.1 z m 3.1,-5.3 C 70.6,9.6 69.1,8.2 67.3,8.3 65.4,8.2 63.8,9.5 63.6,11.4 Z"
+   id="path124"
+   style="fill:#1d47a5;fill-opacity:1" />
+		<path
+   class="st0"
+   d="m 0,16.6 7.9,-8 H 0.2 V 6.1 h 11.3 v 2.6 l -7.9,8 h 8 v 2.5 H 0 Z"
+   id="path126"
+   style="fill:#1d47a5;fill-opacity:1" />
+		<path
+   class="st0"
+   d="m 21,16.7 c 1.3,0 2.6,-0.5 3.6,-1.4 l 1.8,1.9 C 25,18.7 23,19.5 21,19.4 c -4.4,0 -7.2,-2.9 -7.2,-6.8 -0.1,-3.7 2.8,-6.7 6.5,-6.8 0.1,0 0.2,0 0.3,0 4.3,0 6.8,3.3 6.5,7.9 H 17 c 0.3,1.9 2.1,3.2 4,3 z m 3.1,-5.3 C 24,9.6 22.5,8.2 20.7,8.3 18.9,8.2 17.3,9.5 17,11.4 Z"
+   id="path128"
+   style="fill:#1d47a5;fill-opacity:1" />
+		<path
+   class="st0"
+   d="M 44.2,12.6 C 44,9 46.8,5.9 50.4,5.8 c 0.1,0 0.2,0 0.3,0 1.7,0 3.3,0.7 4.3,2 V 0 h 2.8 V 19.1 H 55 v -1.8 c -1.1,1.3 -2.7,2.1 -4.4,2.1 -3.6,0 -6.6,-3 -6.5,-6.6 0.1,-0.1 0.1,-0.2 0.1,-0.2 z m 11,0 c 0,-2.3 -1.9,-4.1 -4.1,-4.1 -2.3,0 -4.1,1.9 -4.1,4.1 0,0 0,0 0,0 0,2.3 1.9,4.1 4.1,4.1 2.3,0 4.1,-1.8 4.1,-4.1 0,0 0,0 0,0 z"
+   id="path130"
+   style="fill:#1d47a5;fill-opacity:1" />
+		<path
+   class="st0"
+   d="M 75.6,16.4 78.1,15 c 0.7,1.2 2,1.9 3.3,1.9 1.6,0 2.4,-0.8 2.4,-1.7 0,-0.9 -1.5,-1.3 -3.2,-1.6 -2.2,-0.5 -4.5,-1.2 -4.5,-3.9 0,-2.1 2,-4 5.1,-4 2.1,-0.1 4.1,0.8 5.3,2.5 l -2.3,1.4 c -0.7,-1 -1.8,-1.5 -2.9,-1.5 -1.5,0 -2.2,0.7 -2.2,1.6 0,0.9 1.2,1.2 3.1,1.6 2.2,0.5 4.6,1.2 4.6,3.9 0,1.8 -1.6,4.2 -5.3,4.2 -2.5,0.2 -4.8,-1 -5.9,-3 z"
+   id="path132"
+   style="fill:#1d47a5;fill-opacity:1" />
+		<path
+   class="st0"
+   d="m 93.8,13.3 -2.2,2.4 v 3.4 H 88.8 V 0 h 2.8 V 12.5 L 97.5,6 h 3.4 l -5.1,5.6 5.2,7.5 h -3.1 z"
+   id="path134"
+   style="fill:#1d47a5;fill-opacity:1" />
+		<path
+   class="st0"
+   d="m 35.9,5.8 c -3.3,0 -6.1,2.2 -6.1,5.7 v 7.7 h 2.8 v -7.3 c -0.2,-1.7 1,-3.2 2.7,-3.4 0.2,0 0.4,0 0.6,0 2.1,0 3.1,1.3 3.1,3.4 v 7.3 h 3 V 11.5 C 42,7.9 39.2,5.8 35.9,5.8 Z"
+   id="path136"
+   style="fill:#1d47a5;fill-opacity:1" />
+	</g>
+</g>
+<g
+   id="g256"
+   transform="matrix(0.76712707,0,0,0.76712707,-237.96476,-310.75479)"><path
+     d="m 320.83666,469.22903 c 0,-3.25017 -0.92677,-4.91906 -2.78013,-5.01033 -0.73767,-0.0347 -1.45818,0.0826 -2.15861,0.35466 -0.559,0.20029 -0.93546,0.39826 -1.13343,0.59836 v 7.75843 c 1.18572,0.74385 2.23869,1.09021 3.15697,1.0356 1.9427,-0.1287 2.9152,-1.70593 2.9152,-4.73672 z m 2.28674,0.13488 c 0,1.65152 -0.38726,3.0221 -1.16604,4.11212 -0.86812,1.23396 -2.0712,1.86898 -3.60946,1.90391 -1.15968,0.0368 -2.35389,-0.32629 -3.58322,-1.08847 v 7.05162 l -1.98862,-0.70931 v -15.65155 c 0.32629,-0.40019 0.74636,-0.74385 1.25538,-1.03541 1.1836,-0.68963 2.62171,-1.04428 4.31414,-1.06165 l 0.0282,0.0282 c 1.54714,-0.0195 2.73923,0.61554 3.57686,1.90372 0.78128,1.18129 1.17279,2.69542 1.17279,4.54685 z"
+     id="path46"
+     style="stroke-width:0.192957" /><path
+     d="m 335.27644,473.992 c 0,2.21457 -0.22152,3.74839 -0.66551,4.60164 -0.44612,0.85249 -1.29455,1.53344 -2.548,2.04034 -1.01612,0.40019 -2.11443,0.61804 -3.29359,0.6547 l -0.32842,-1.25268 c 1.19885,-0.16324 2.04246,-0.32629 2.53218,-0.48992 0.96402,-0.3259 1.62548,-0.82644 1.98843,-1.49696 0.29214,-0.54569 0.4357,-1.58804 0.4357,-3.13035 v -0.51828 c -1.36016,0.61804 -2.78476,0.92484 -4.27536,0.92484 -0.97907,0 -1.84274,-0.3068 -2.58698,-0.92484 -0.83512,-0.67227 -1.25268,-1.52514 -1.25268,-2.55823 v -8.27633 l 1.98843,-0.68095 v 8.33036 c 0,0.88972 0.28712,1.57492 0.86136,2.05577 0.57462,0.48085 1.31867,0.71182 2.2302,0.69426 0.91153,-0.0201 1.88847,-0.37202 2.92639,-1.06204 v -9.7183 h 1.98843 V 473.992 Z"
+     id="path48"
+     style="stroke-width:0.192957" /></g><metadata
+   id="metadata337"><rdf:RDF><cc:Work
+       rdf:about="" /></rdf:RDF></metadata></svg>
