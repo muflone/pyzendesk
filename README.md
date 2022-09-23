@@ -13,7 +13,7 @@
 
 **Source code:** https://github.com/muflone/pyzendesk
 
-**Documentation:** https://www.muflone.com/pyzendesk/
+**Documentation:** http://www.muflone.com/pyzendesk/
 
 # Description
 
