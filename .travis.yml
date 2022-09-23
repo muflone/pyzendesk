@@ -4,9 +4,9 @@ python:
 install:
   - pip install -r requirements_ci.txt
 script:
-  - python -m compileall .
-  - python -m pycodestyle .
-  - python -m flake8 .
+  - python -m compileall pyzendesk
+  - python -m pycodestyle pyzendesk
+  - python -m flake8 pyzendesk
   - python -m build --outdir=dist .
   - python -m pip install --verbose dist/*.whl
   - python -m pip list
