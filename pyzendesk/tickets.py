@@ -111,6 +111,40 @@ class Tickets(Api):
         return self.request_get(
             path=f'search/export?filter[type]=ticket&query={criteria}')
 
+    def search_export_all(self, criteria_list: list) -> dict:
+        """
+        Get the tickets matching the specified criterias processing all the
+        results by requesting also the next pages using the search export API
+
+        :param criteria_list: list of string criterias
+        :return: dictionary with tickets details found
+        """
+        results = {}
+        next_token = 'initial value'
+        # Copy the criteria list which will be changed during the loop
+        criteria_list = criteria_list.copy()
+        while next_token:
+            search_results = self.search_export(criteria_list=criteria_list)
+            if not results:
+                # First page of results
+                results = search_results
+            elif 'error' in search_results:
+                # Too many results, search interrupted server side
+                results['error'] = search_results['error']
+                results['description'] = search_results['description']
+            else:
+                # Append results
+                results['results'].extend(search_results['results'])
+            if f'&page[after]={next_token}' in criteria_list:
+                criteria_list.remove(f'&page[after]={next_token}')
+            if search_results['meta']['has_more']:
+                # Continue processing the next page
+                next_token = search_results['meta']['after_cursor']
+            else:
+                # Stop search if any error occurred
+                next_token = None
+            criteria_list.append(f'&page[after]={next_token}')
+        return results
 
     def add_comment(self,
                     ticket_id: int,
