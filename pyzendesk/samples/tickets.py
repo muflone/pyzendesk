@@ -67,6 +67,8 @@ ticket = zendesk.get(ticket_id=ticket_id)
 print('ticket details:', ticket)
 comments = zendesk.get_comments(ticket_id=ticket_id)
 print('ticket comments:', comments)
+comments = zendesk.get_comments_all(ticket_id=ticket_id)
+print('ticket comments:', comments)
 
 ticket_id = 358004
 # Set ticket custom fields

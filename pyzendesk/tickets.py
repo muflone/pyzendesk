@@ -49,6 +49,39 @@ class Tickets(Api):
         """
         return self.request_get(path=f'tickets/{ticket_id}/comments.json')
 
+    def get_comments_all(self, ticket_id: int) -> dict:
+        """
+        Get all ticket comments
+
+        :param ticket_id: ticket ID to get data from
+        :return: dictionary with the ticket details
+        """
+        results = {}
+        current_page = 0
+        next_page_url = 'initial value'
+        # Copy the criteria list which will be changed during the loop
+        while next_page_url:
+            current_page += 1
+            search_results = self.request_get(
+                path=f'tickets/{ticket_id}/comments.json?page={current_page}')
+            if not results:
+                # First page of results
+                results = search_results
+            elif 'error' in search_results:
+                # Too many results, search interrupted server side
+                results['error'] = search_results['error']
+                results['description'] = search_results['description']
+            else:
+                # Append results
+                results['comments'].extend(search_results['comments'])
+            if 'error' not in search_results:
+                # Continue processing the next page
+                next_page_url = search_results['next_page']
+            else:
+                # Stop search if any error occurred
+                next_page_url = None
+        return results
+
     def count(self, criteria_list: list) -> Optional[int]:
         """
         Get the number of tickets matching the specified criterias
