@@ -99,6 +99,19 @@ class Tickets(Api):
             criteria_list.remove(f'&page={current_page}')
         return results
 
+    def search_export(self, criteria_list: list) -> dict:
+        """
+        Get the tickets matching the specified criterias
+        using the search export API
+
+        :param criteria_list: list of string criterias
+        :return: dictionary with tickets details found
+        """
+        criteria = ' '.join(criteria_list)
+        return self.request_get(
+            path=f'search/export?filter[type]=ticket&query={criteria}')
+
+
     def add_comment(self,
                     ticket_id: int,
                     public: bool,
