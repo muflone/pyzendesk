@@ -108,7 +108,7 @@ class Tickets(Api):
     def search_all(self, criteria_list: list) -> dict:
         """
         Get the tickets matching the specified criterias processing all the
-        results by requesting also the next pages.
+        results by requesting also the next pages
 
         :param criteria_list: list of string criterias
         :return: dictionary with tickets details found
