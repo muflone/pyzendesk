@@ -40,6 +40,15 @@ class Tickets(Api):
         """
         return self.request_get(path=f'tickets/{ticket_id}.json')
 
+    def get_comments(self, ticket_id: int) -> dict:
+        """
+        Get a ticket comments
+
+        :param ticket_id: ticket ID to get data from
+        :return: dictionary with the ticket details
+        """
+        return self.request_get(path=f'tickets/{ticket_id}/comments.json')
+
     def count(self, criteria_list: list) -> Optional[int]:
         """
         Get the number of tickets matching the specified criterias
