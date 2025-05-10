@@ -19,7 +19,7 @@
 ##
 
 APP_NAME = 'PyZendesk'
-APP_VERSION = '0.4.1'
+APP_VERSION = '0.5.0'
 APP_DESCRIPTION = 'API for Zendesk'
 APP_DOMAIN = 'pyzendesk'
 APP_ID = f'{APP_DOMAIN}.muflone.com'
